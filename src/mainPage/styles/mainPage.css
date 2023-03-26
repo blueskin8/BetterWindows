@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#mainPage.after {
+    transition: 1s;
+    transition-property: margin-left;
+    transition-timing-function: cubic-bezier(.53, .01, .49, 1);
+    margin-left: 10px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#mainPage.before {
+    z-index: 50;
+    transition: 1s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    width: 300px;
+    height: 300px;
+}
+
+.blur {
+    filter: blur(10px);
+}
+
+body {
+    transition: 1s;
+    font-family: 'Montserrat';
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 40px;
+    margin-left: 40px;
+    color: white;
+    background: url("../../assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    user-select: none;
+}
+
+main p {
+    font-size: 20px;
+}
+
+main {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    text-align: center;
+    margin-left: 180px;
+    padding: 20px;
+    height: 310px;
+    margin-top: 50px;
+    margin-right: 180px;
+}
+
+#install {
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 0px;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+}
+
+nav ul li.selected {
+    color: rgb(126, 126, 126);
+}
+
+nav ul li:hover {
+    transition: 0.5s;
+    color: rgb(126, 126, 126);
+}
+
+nav ul {
+    margin: 0px;
+    display: flex;
+    justify-content: end;
+}
+
+nav ul li {
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s;
+    z-index: 1;
+    list-style: none;
+    font-size: 18px;
+    margin: 10px;
+}

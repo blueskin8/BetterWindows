@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterWindows - Installer</title>
+    <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/mainPage.css">
+</head>
+
+<body id="body" class="blur">
+    <nav>
+        <img id="mainPage" onclick="mainPage()" src="../assets/icon.png" height="42px" class="before">
+        <ul>
+            <li id="about" onclick="about()">A propos</li>
+            <li id="github" onclick="openGitRepo()">Github</li>
+            <li id="close" onclick="closeApp()">Fermer</li>
+            <li id="install" onclick="select('install')">Installer</li>
+        </ul>
+    </nav>
+    <main id="main"></main>
+</body>
+<script>
+    const allElements = document.querySelectorAll('*')
+    const flushMain = () => document.querySelectorAll("body main *").forEach(e => e.remove())
+    const removeAllSelected = () => allElements.forEach(element => element.classList.remove("selected"))
+    const select = (id = String) => { removeAllSelected(); document.getElementById(id).classList.add("selected") }
+    const createTextElement = (text = String) => { const para = document.createElement('p'); const node = document.createTextNode(text); para.appendChild(node); return para }
+    const addElemntToMain = (element) => { document.getElementById('main').appendChild(element) }
+    const about = () => {
+        flushMain()
+        removeAllSelected()
+        document.getElementById("about").classList.add("selected")
+        addElemntToMain(createTextElement('Nous sommes une team de jeunes développeurs JavaScript et nous avons eu envie de creer une extension pour Windows.'))
+    }
+    const mainPage = () => {
+        flushMain()
+        removeAllSelected()
+        addElemntToMain(createTextElement('Choisissez une section dans la barre de navigation'))
+    }
+    const openGitRepo = () => window.open('https://github.com/blueskin8/BetterWindows', '_blank').focus()
+    const closeApp = () => {
+        flushMain()
+        addElemntToMain(createTextElement('Fermeture en cours ...'))
+        addElemntToMain(createTextElement('Veuillez patienter'))
+    }
+    window.onload = () => {
+        mainPage()
+        const icon = document.getElementById("mainPage")
+        setTimeout(() => {
+            icon.classList.replace('before', 'after')
+            setTimeout(() => {
+                document.getElementById('body').classList.remove('blur')
+            }, 500)
+        }, 1000)
+    }
+</script>
+
+</html>

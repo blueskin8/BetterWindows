@@ -1,0 +1,23 @@
+{
+  "name": "betterwindows",
+  "version": "0.0.1",
+  "description": "Une amélioration de Windows : amélioration des interfaces, rajout de fonctionnalités ...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blueskin8/BetterWindows.git"
+  },
+  "author": "blueskin8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blueskin8/BetterWindows/issues"
+  },
+  "homepage": "https://github.com/blueskin8/BetterWindows#readme",
+  "devDependencies": {
+    "electron": "^23.1.4"
+  }
+}
