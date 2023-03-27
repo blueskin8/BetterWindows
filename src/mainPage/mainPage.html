@@ -11,8 +11,11 @@
 </head>
 
 <body id="body" class="blur">
+    <div id="load-logo-container">
+        <img id="load-logo" onclick="mainPage()" src="../assets/icon.png" height="42px" class="before">        
+    </div>
     <nav>
-        <img id="mainPage" onclick="mainPage()" src="../assets/icon.png" height="42px" class="before">
+        <img id="menu-icon" onclick="mainPage()" src="../assets/icon.png" height="42px" class="before">
         <ul>
             <li id="about" onclick="about()">A propos</li>
             <li id="github" onclick="openGitRepo()">Github</li>
@@ -28,32 +31,36 @@
     const removeAllSelected = () => allElements.forEach(element => element.classList.remove("selected"))
     const select = (id = String) => { removeAllSelected(); document.getElementById(id).classList.add("selected") }
     const createTextElement = (text = String) => { const para = document.createElement('p'); const node = document.createTextNode(text); para.appendChild(node); return para }
-    const addElemntToMain = (element) => { document.getElementById('main').appendChild(element) }
+    const addElementToMain = (element) => { document.getElementById('main').appendChild(element) }
     const about = () => {
         flushMain()
         removeAllSelected()
         document.getElementById("about").classList.add("selected")
-        addElemntToMain(createTextElement('Nous sommes une team de jeunes développeurs JavaScript et nous avons eu envie de creer une extension pour Windows.'))
+        addElementToMain(createTextElement('Nous sommes une team de jeunes développeurs JavaScript et nous avons eu envie de creer une extension pour Windows.'))
     }
     const mainPage = () => {
         flushMain()
         removeAllSelected()
-        addElemntToMain(createTextElement('Choisissez une section dans la barre de navigation'))
+        addElementToMain(createTextElement('Choisissez une section dans la barre de navigation'))
     }
     const openGitRepo = () => window.open('https://github.com/blueskin8/BetterWindows', '_blank').focus()
     const closeApp = () => {
         flushMain()
-        addElemntToMain(createTextElement('Fermeture en cours ...'))
-        addElemntToMain(createTextElement('Veuillez patienter'))
+        addElementToMain(createTextElement('Fermeture en cours ...'))
+        addElementToMain(createTextElement('Veuillez patienter'))
+        close()
     }
     window.onload = () => {
         mainPage()
-        const icon = document.getElementById("mainPage")
+        const icon = document.getElementById("menu-icon")
+        const logo = document.querySelector('#load-logo')
         setTimeout(() => {
-            icon.classList.replace('before', 'after')
+            icon.classList.add('after')
+            logo.classList.add('after')
+            document.querySelector('#load-logo-container').classList.add('loaded')
             setTimeout(() => {
-                document.getElementById('body').classList.remove('blur')
-            }, 500)
+                document.querySelector('#load-logo-container').style.display = 'none';
+            }, 1000)
         }, 1000)
     }
 </script>

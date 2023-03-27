@@ -24,7 +24,6 @@ app.on('window-all-closed', () => {
 })
 
 exports.close = () => app.exit(0)
-module.exports.closeApp = () => app.exit(0)
 
 electron.ipcMain.on('request-mainprocess-action', (event, arg) => {
     console.log(arg)

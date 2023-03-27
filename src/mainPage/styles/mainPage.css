@@ -1,42 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-#mainPage.after {
-    transition: 1s;
-    transition-property: margin-left;
-    transition-timing-function: cubic-bezier(.53, .01, .49, 1);
-    margin-left: 10px;
-    position: absolute;
-    cursor: pointer;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-#mainPage.before {
-    z-index: 50;
-    transition: 1s;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -150px;
-    width: 300px;
-    height: 300px;
-}
-
-.blur {
-    filter: blur(10px);
+html {
+    height: 100%;
+    width: 100%;
 }
 
 body {
-    transition: 1s;
     font-family: 'Montserrat';
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-right: 40px;
-    margin-left: 40px;
     color: white;
     background: url("../../assets/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     user-select: none;
+    height: 100%;
+    width: 100%;
+    display: grid;
+}
+
+#menu-icon {
+    position: absolute;
+    cursor: pointer;
+    transform: translateX(-40px);
+}
+
+#menu-icon.after {
+    transition: 1s;
+    transition-timing-function: cubic-bezier(.53, .01, .49, 1);
+    transform: translateX(30px);
+}
+
+#load-logo-container.loaded {
+    transition: 1s;
+    backdrop-filter: blur(0px);
+}
+
+#load-logo-container {
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+    position: absolute;
+    backdrop-filter: blur(10px);
+    display:grid;
+}    
+
+#load-logo.after {
+    opacity: 0;
+    transition: 1s;
+}
+
+#load-logo {
+    width: 300px;
+    height: 300px;
+    align-self: center;
+    justify-self: center;
 }
 
 main p {
@@ -50,21 +71,20 @@ main {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     text-align: center;
-    margin-left: 180px;
-    padding: 20px;
+    width: 600px;
     height: 310px;
-    margin-top: 50px;
-    margin-right: 180px;
+    justify-self: center;
+    padding-top: 30px;
 }
 
 #install {
-    padding: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 0px;
-    border-radius: 5px;
     color: black;
     background-color: white;
+}
+
+nav {
+    padding-top: 30px;
+    margin-right: 20px;
 }
 
 nav ul li.selected {
@@ -77,7 +97,6 @@ nav ul li:hover {
 }
 
 nav ul {
-    margin: 0px;
     display: flex;
     justify-content: end;
 }
@@ -89,5 +108,8 @@ nav ul li {
     z-index: 1;
     list-style: none;
     font-size: 18px;
-    margin: 10px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
 }
